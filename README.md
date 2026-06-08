@@ -6,7 +6,7 @@ A security-hardened fork of [Bruce firmware](https://github.com/pr3y/Bruce) — 
 
 ## Description
 
-HeavyButter is a security-hardened fork of the [Bruce predatory firmware](https://github.com/pr3y/Bruce) by pr3y/BruceDevices. All vulnerabilities identified in the [forensic audit](https://github.com/r13xr13/bruce-firmware-forensic-report) have been remediated. This fork prioritizes operational security while retaining the original feature set and adding enhanced protection for red team operators.
+SharkSoup is a security-hardened fork of the [Bruce predatory firmware](https://github.com/pr3y/Bruce) by pr3y/BruceDevices. All vulnerabilities identified in the [forensic audit](https://github.com/r13xr13/bruce-firmware-forensic-report) have been remediated. This fork prioritizes operational security while retaining the original feature set and adding enhanced protection for red team operators.
 
 ## Audit Remediation
 
@@ -79,7 +79,7 @@ The firmware is pre-configured to use this App Store server. Just flash and go.
 
 ## Supported Boards
 
-HeavyButter is built and tested for the following 6 boards:
+SharkSoup is built and tested for the following 6 boards:
 
 - M5Stack Cardputer
 - M5Stack StickS3 (M5StickC PLUS2)
@@ -112,4 +112,4 @@ The original Bruce firmware was built by a community of contributors. See the [u
 
 ## Disclaimer
 
-HeavyButter is a tool for cyber offensive and red team operations, distributed under the terms of the Affero General Public License (AGPL). It is intended for legal and authorized security testing purposes only. Use of this software for any malicious or unauthorized activities is strictly prohibited. By downloading, installing, or using HeavyButter, you agree to comply with all applicable laws and regulations. The developers of HeavyButter assume no liability for any misuse of the software. Use at your own risk.
+SharkSoup is a tool for cyber offensive and red team operations, distributed under the terms of the Affero General Public License (AGPL). It is intended for legal and authorized security testing purposes only. Use of this software for any malicious or unauthorized activities is strictly prohibited. By downloading, installing, or using HeavyButter, you agree to comply with all applicable laws and regulations. The developers of HeavyButter assume no liability for any misuse of the software. Use at your own risk.
