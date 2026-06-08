@@ -1,18 +1,38 @@
 services:
+  # Static file server - listens only internally, no host ports
   appstore:
     image: caddy:2-alpine
     container_name: heavybutter-appstore
     restart: unless-stopped
-    ports:
-      - "${PORT:-8080}:80"
-      - "${PORT_SSL:-443}:443"
+    expose:
+      - 80
     environment:
-      - DOMAIN=${DOMAIN:-:80}
+      - DOMAIN=:80  # HTTP only; TLS is handled by Cloudflare Tunnel
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./www:/www:ro
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - appstore-net
+
+  # Cloudflare Tunnel - public HTTPS ingress, no open ports needed
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: heavybutter-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN:?Set TUNNEL_TOKEN in .env or environment}
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+      - TUNNEL_METRICS=localhost:43100
+    networks:
+      - appstore-net
+    depends_on:
+      - appstore
+
+networks:
+  appstore-net:
+    driver: bridge
 
 volumes:
   caddy_data:

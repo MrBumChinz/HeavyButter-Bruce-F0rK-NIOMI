@@ -69,44 +69,50 @@ Replace `<environment>` with the target board environment (e.g., `m5stack-cardpu
 
 ## Self-Hosted App Store
 
-HeavyButter includes a self-hosted App Store in Docker so you control every module downloaded to your device. No dependency on upstream servers.
+HeavyButter includes a self-hosted App Store in Docker so you control every module downloaded to your device. It runs behind a Cloudflare Tunnel — no open ports, no public IP needed.
+
+### Prerequisites
+
+- Docker and Docker Compose
+- A Cloudflare account with `voltbin.xyz` (or your domain) on the Free plan
+- A Cloudflare Tunnel token from [Zero Trust > Networks > Tunnels](https://dash.cloudflare.com/)
 
 ### Quick Start
 
 ```sh
 cd appstore
 
-# Start the server (requires Docker)
-docker compose up -d
+# 1. Set your Cloudflare Tunnel token
+echo "TUNNEL_TOKEN=your-token-here" > .env
 
-# Sync the latest App Store catalog from upstream
-bash scripts/sync.sh http://ghp.iceis.co.uk http://localhost:8080
-docker compose restart
-```
-
-### Production Deployment
-
-Set a domain with HTTPS:
-
-```sh
-DOMAIN=voltbin.xyz docker compose up -d
+# 2. Sync the App Store catalog from upstream
 bash scripts/sync.sh http://ghp.iceis.co.uk https://voltbin.xyz
-docker compose restart
+
+# 3. Start everything (Caddy + Cloudflare Tunnel)
+docker compose up -d
 ```
 
-Then update the firmware's App Store URL in `src/core/config.h`:
+### Setting Up the Cloudflare Tunnel
 
-```c
-#define APPSTORE_SERVER_URL "https://voltbin.xyz"
-```
+1. Go to [Cloudflare Zero Trust](https://dash.cloudflare.com/) > Networks > Tunnels
+2. Click **Create a tunnel**, choose `cloudflared`, name it `heavybutter-appstore`
+3. Copy the tunnel token shown — save it to `.env` as `TUNNEL_TOKEN`
+4. In **Public Hostname** tab, add:
+   - **Subdomain**: (leave blank or use `appstore`)
+   - **Domain**: `voltbin.xyz`
+   - **Type**: `HTTP`
+   - **URL**: `appstore:80`
+5. Save the tunnel
 
-Rebuild and flash to your device:
-
-```sh
-pio run -e m5stack-cardputer -t upload
-```
+Cloudflare will automatically provision a TLS certificate and route `voltbin.xyz` (or `appstore.voltbin.xyz`) through the tunnel to your local Caddy container. No ports need to be open on your firewall.
 
 ### Architecture
+
+```
+Internet --> Cloudflare Edge (TLS) --> Cloudflare Tunnel --> Caddy (HTTP) --> /www
+                                      |                      |
+                              cloudflared container    appstore container
+```
 
 | Endpoint | Purpose |
 |---|---|
@@ -116,14 +122,33 @@ pio run -e m5stack-cardputer -t upload
 | `/service/main/repositories/{owner}/{repo}/{app}/metadata.json` | App metadata with version, files, commit |
 | `/service/manual/{owner}/{repo}/{commit}/{path}` | Direct file download for install/update |
 
-All data is static — no database, no backend logic. The sync script snapshots from upstream and patches the JS to point to your server. Each download is verified by SHA-256 integrity check in the firmware.
-
 ### Periodic Updates
 
-Add a cron job to keep your App Store catalog fresh:
+Keep your catalog fresh with a cron job:
 
 ```cron
-0 */6 * * * cd /path/to/appstore && bash scripts/sync.sh http://ghp.iceis.co.uk https://voltbin.xyz && docker compose restart
+0 */6 * * * cd /path/to/appstore && bash scripts/sync.sh http://ghp.iceis.co.uk https://voltbin.xyz && docker compose restart appstore
+```
+
+### Updating the Firmware URL
+
+The firmware points to `https://voltbin.xyz` by default. To use a different subdomain, edit `src/core/config.h`:
+
+```c
+#define APPSTORE_SERVER_URL "https://appstore.voltbin.xyz"
+```
+
+Then update the JS `H` constant:
+
+```sh
+bash scripts/sync.sh http://ghp.iceis.co.uk https://appstore.voltbin.xyz
+docker compose restart appstore
+```
+
+Rebuild and flash:
+
+```sh
+pio run -e m5stack-cardputer -t upload
 ```
 
 ## Supported Boards

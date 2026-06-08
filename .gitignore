@@ -11,3 +11,8 @@ Thumbs.db
 # Firmware binaries
 Bruce-*.bin
 SharkSoup-*.bin
+
+# Environment / secrets (never commit these)
+.env
+.env.local
+*.env

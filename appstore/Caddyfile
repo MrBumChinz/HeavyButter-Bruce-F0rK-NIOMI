@@ -1,6 +1,8 @@
 # HeavyButter Self-Hosted App Store
-{$DOMAIN:voltbin.xyz} {
-    # Security headers
+# HTTP only - TLS is terminated by Cloudflare Tunnel
+:80 {
+    # Trust Cloudflare's proxy headers for correct client IP
+    trusted_proxies static private_ranges
     header {
         X-Content-Type-Options "nosniff"
         X-Frame-Options "DENY"
