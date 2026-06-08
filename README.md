@@ -1,4 +1,4 @@
-![Bruce Main Menu](./media/pictures/bruce_banner.jpg)
+![SharkSoup HeavyButter Edition](./media/pictures/sharksoup_banner.png)
 
 # SharkSoup HeavyButter Edition
 
