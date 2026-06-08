@@ -1,5 +1,4 @@
 var display = require('display');
-__allow("serial");
 var serialApi = require('serial');
 
 var println = display.println;

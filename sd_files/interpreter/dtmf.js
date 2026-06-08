@@ -1,6 +1,5 @@
 var display = require('display');
 var keyboardApi = require('keyboard');
-__allow("audio");
 var audio = require('audio');
 
 var keyboardPrompt = keyboardApi.keyboard;

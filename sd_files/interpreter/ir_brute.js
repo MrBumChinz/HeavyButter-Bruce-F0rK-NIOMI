@@ -1,7 +1,6 @@
 var display = require('display');
 var keyboardApi = require('keyboard');
 var dialog = require('dialog');
-__allow("ir");
 var ir = require('ir');
 
 var fillScreen = display.fill;

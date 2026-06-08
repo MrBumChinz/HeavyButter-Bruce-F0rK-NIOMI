@@ -614,7 +614,7 @@ static void runJammer(NRF24_MODE nrfMode, NrfJamMode jamMode) {
     if (savedWifiMode != WIFI_MODE_NULL) {
         esp_wifi_set_ps(WIFI_PS_MIN_MODEM);
         esp_wifi_stop();
-        esp_phy_disable();
+        esp_phy_disable(ESP_PHY_MODEM_WIFI);
         delay(10);  // Wait for RF front-end to settle
     }
 

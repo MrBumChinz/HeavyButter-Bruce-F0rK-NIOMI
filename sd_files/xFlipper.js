@@ -14,7 +14,6 @@ let icon = require("gui/icon");
 let flipper = require("flipper");
 
 let press =0;
-__allow("serial");
 let serial = require("serial");
 
 serial.setup("usart", 115200);

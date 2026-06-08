@@ -1,10 +1,7 @@
 var display = require('display');
 var keyboard = require('keyboard');
-__allow("ir");
 var ir = require('ir');
-__allow("serial");
 var serial = require('serial');
-__allow("badusb");
 var badusb = require('badusb');
 
 var fillScreen = display.fill;

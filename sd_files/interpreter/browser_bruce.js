@@ -1,5 +1,4 @@
 var dialog = require('dialog');
-__allow("wifi");
 var wifi = require('wifi');
 var display = require('display');
 var keyboard = require('keyboard');
