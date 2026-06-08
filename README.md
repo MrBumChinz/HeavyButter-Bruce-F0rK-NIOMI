@@ -1,6 +1,6 @@
-# HeavyButter - Sarkfin Soup Edition
+# SharkSoup HeavyButter Edition
 
-A secured fork of Bruce firmware by HeavyButter
+A secured fork of Bruce firmware - SharkSoup HeavyButter Edition
 
 ## Description
 
