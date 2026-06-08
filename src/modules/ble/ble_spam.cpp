@@ -265,7 +265,7 @@ void executeSpam(EBLEPayloadType type, String customName = "") {
     pAdvertising->stop();
     vTaskDelay(5 / portTICK_PERIOD_MS);
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif
@@ -292,7 +292,7 @@ void executeCustomSpam(String spamName) {
     pAdvertising->stop();
     vTaskDelay(5 / portTICK_PERIOD_MS);
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif
@@ -336,7 +336,7 @@ void ibeacon(const char *DeviceName, const char *BEACON_UUID, int ManufacturerId
     }
 
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif
@@ -415,7 +415,7 @@ void aj_adv(int ble_choice) {
         pAdvertising = nullptr;
         vTaskDelay(100 / portTICK_PERIOD_MS);
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-        esp_bt_controller_deinit();
+        btStop();
 #else
         BLEDevice::deinit();
 #endif
@@ -465,7 +465,7 @@ void aj_adv(int ble_choice) {
     pAdvertising = nullptr;
     vTaskDelay(100 / portTICK_PERIOD_MS);
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif

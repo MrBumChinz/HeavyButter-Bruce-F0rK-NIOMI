@@ -80,7 +80,7 @@ static String encrypt_field(const String &plaintext) {
 
 // Decrypts a field encrypted with encrypt_field
 static String decrypt_field(const String &encrypted) {
-    if (encrypted.length() == 0 || !encrypted.contains(':')) return encrypted;
+    if (encrypted.length() == 0 || encrypted.indexOf(':') < 0) return encrypted;
     
     uint8_t key[32];
     derive_config_key(key);

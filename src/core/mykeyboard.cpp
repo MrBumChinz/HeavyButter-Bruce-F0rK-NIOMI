@@ -1368,7 +1368,7 @@ void powerOff() { displayWarning("Not available", true); }
 void goToDeepSleep() {
     // Power down radios before deep sleep
     WiFi.mode(WIFI_OFF);
-    esp_bt_controller_deinit();
+    btStop();
 #if DEEPSLEEP_WAKEUP_PIN >= 0
 
 #if SOC_PM_SUPPORT_EXT0_WAKEUP

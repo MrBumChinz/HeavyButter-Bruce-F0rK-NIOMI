@@ -190,7 +190,7 @@ void setBrightnessMenu() {
 void setSleepMode() {
     // Power down radios during sleep mode
     WiFi.mode(WIFI_OFF);
-    esp_bt_controller_deinit();
+    btStop();
     sleepModeOn();
     while (1) {
         if (check(AnyKeyPress)) {

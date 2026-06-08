@@ -16,7 +16,7 @@ void BleMenu::optionsMenu() {
     if (BLEConnected) {
         options.push_back({"Disconnect", [=]() {
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-                               esp_bt_controller_deinit();
+                               btStop();
 #else
             BLEDevice::deinit();
 #endif

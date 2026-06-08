@@ -123,7 +123,7 @@ void stopAppleSpam() {
     }
 
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif
@@ -166,7 +166,7 @@ void quickAppleSpam(int payloadIndex) {
     vTaskDelay(5 / portTICK_PERIOD_MS);
 
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-    esp_bt_controller_deinit();
+    btStop();
 #else
     BLEDevice::deinit();
 #endif
@@ -225,7 +225,7 @@ void startAppleSpamAll() {
         vTaskDelay(5 / portTICK_PERIOD_MS);
 
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-        esp_bt_controller_deinit();
+        btStop();
 #else
         BLEDevice::deinit();
 #endif
@@ -287,7 +287,7 @@ void startAppleSpam(int payloadIndex) {
         vTaskDelay(5 / portTICK_PERIOD_MS);
 
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-        esp_bt_controller_deinit();
+        btStop();
 #else
         BLEDevice::deinit();
 #endif

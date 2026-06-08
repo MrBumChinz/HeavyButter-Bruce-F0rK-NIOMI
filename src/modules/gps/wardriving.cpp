@@ -105,7 +105,7 @@ void Wardriving::end() {
     if (scanWiFi) wifiDisconnect();
     if (scanBLE) {
 #if defined(CONFIG_IDF_TARGET_ESP32C5)
-        esp_bt_controller_deinit();
+        btStop();
 #else
         BLEDevice::deinit(true);
 #endif
