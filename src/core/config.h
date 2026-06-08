@@ -59,9 +59,9 @@ public:
 #endif
 
     // Wifi
-    Credential webUI = {"admin", "bruce"};  // FIXME: hardcoded default - should be unique per device
+    Credential webUI = {"admin", "heavybutter"};  // FIXME: hardcoded default - should be unique per device
     std::vector<String> webUISessions = {}; // FIFO queue of session tokens
-    WiFiCredential wifiAp = {"BruceNet", "brucenet"};  // FIXME: hardcoded default - should be MAC-derived
+    WiFiCredential wifiAp = {"HeavyButter", "heavybutter"};  // FIXME: hardcoded default - should be MAC-derived
     std::map<String, String> wifi = {};
     std::set<String> evilWifiNames = {};
     String wifiMAC = ""; //@IncursioHack
@@ -95,7 +95,7 @@ public:
     std::vector<String> disabledMenus = {};
 
     std::vector<QrCodeEntry> qrCodes = {
-        {"Bruce AP",   "WIFI:T:WPA;S:BruceNet;P:brucenet;;"},
+        {"HeavyButter AP",   "WIFI:T:WPA;S:HeavyButter;P:heavybutter;;"},
         {"Bruce Wiki", "https://github.com/pr3y/Bruce/wiki"},
         {"Bruce Site", "https://bruce.computer"            },
         {"Rickroll",   "https://youtu.be/dQw4w9WgXcQ"      }

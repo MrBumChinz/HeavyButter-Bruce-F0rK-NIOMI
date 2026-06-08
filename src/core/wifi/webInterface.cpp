@@ -286,7 +286,7 @@ void drawWebUiScreen(bool mode_ap) {
 
     if (mode_ap) {
         tft.setCursor(padX, currentY);
-        tft.print("Net: BruceNet/brucenet");
+        tft.print("Net: HeavyButter/heavybutter");
         currentY += LH * FP + 6;
     }
 
@@ -419,7 +419,7 @@ void configureWebServer() {
 
             if (username == bruceConfig.webUI.user && password == bruceConfig.webUI.pwd) {
         // Warn if using known default credentials
-        if (password == "bruce" || password == "brucenet") {
+        if (password == "bruce" || password == "brucenet" || password == "heavybutter") {
             Serial.println("WARNING: Using default credentials! Change immediately.");
             // flash a warning on the web interface
             bruceConfig.warningFlags |= (1 << 0); // flag defaultsWarning

@@ -20,7 +20,7 @@ public:
 };
 
 void BLE_API::setup() {
-    NimBLEDevice::init("Bruce");
+    NimBLEDevice::init("HeavyButter");
     NimBLEDevice::setPower(ESP_PWR_LVL_P9); // 9 dBm, tweak if you want
 
     pServer = NimBLEDevice::createServer();

@@ -936,9 +936,9 @@ private:
             mbedtls_x509write_crt_set_version(&crt, MBEDTLS_X509_CRT_VERSION_3);
             rc = mbedtls_x509write_crt_set_serial_raw(&crt, serialRaw, sizeof(serialRaw));
             if (rc != 0) break;
-            rc = mbedtls_x509write_crt_set_subject_name(&crt, "CN=Bruce U2F Attestation,O=BruceDevices,C=US");
+            rc = mbedtls_x509write_crt_set_subject_name(&crt, "CN=Bruce U2F Attestation,O=HeavyButter,C=US");
             if (rc != 0) break;
-            rc = mbedtls_x509write_crt_set_issuer_name(&crt, "CN=Bruce U2F Attestation,O=BruceDevices,C=US");
+            rc = mbedtls_x509write_crt_set_issuer_name(&crt, "CN=Bruce U2F Attestation,O=HeavyButter,C=US");
             if (rc != 0) break;
             rc = mbedtls_x509write_crt_set_validity(&crt, "20260101000000", "20360101000000");
             if (rc != 0) break;

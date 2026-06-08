@@ -172,15 +172,15 @@ void GPSTracker::add_initial_file_data(File file) {
     );
     file.println(">");
     file.println("  <metadata>");
-    file.println("    <name>Bruce GPS Tracker</name>");
-    file.println("    <desc>GPS Tracker using Bruce Firmware</desc>");
+    file.println("    <name>HeavyButter GPS Tracker</name>");
+    file.println("    <desc>GPS Tracker using HeavyButter Firmware</desc>");
     file.println("    <link href=\"https://bruce.computer\">");
-    file.println("      <text>Bruce Website</text>");
+    file.println("      <text>HeavyButter Website</text>");
     file.println("    </link>");
     file.println("  </metadata>");
     file.println("  <trk>");
-    file.println("    <name>Bruce Route</name>");
-    file.println("    <desc>GPS route captured by Bruce firmware</desc>");
+    file.println("    <name>HeavyButter Route</name>");
+    file.println("    <desc>GPS route captured by HeavyButter firmware</desc>");
     file.println("    <trkseg>");
 }
 

@@ -999,9 +999,9 @@ void sniffer_setup() {
     ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
 
     wifi_config_t wifi_config;
-    strlcpy((char *)wifi_config.ap.ssid, "BruceSniffer", sizeof(wifi_config.ap.ssid));
-    strlcpy((char *)wifi_config.ap.password, "brucenet", sizeof(wifi_config.ap.password));
-    wifi_config.ap.ssid_len = strlen("BruceSniffer");
+    strlcpy((char *)wifi_config.ap.ssid, "HeavyButterSniffer", sizeof(wifi_config.ap.ssid));
+    strlcpy((char *)wifi_config.ap.password, "heavybutter", sizeof(wifi_config.ap.password));
+    wifi_config.ap.ssid_len = strlen("HeavyButterSniffer");
     wifi_config.ap.channel = 1;                   // Channel
     wifi_config.ap.authmode = WIFI_AUTH_WPA2_PSK; // auth mode
     wifi_config.ap.ssid_hidden = 1;               // 1 to hidden SSID, 0 to visivle

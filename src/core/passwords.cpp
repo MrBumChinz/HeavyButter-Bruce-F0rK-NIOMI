@@ -163,7 +163,7 @@ String encryptString(String &plaintext, const String &password_str) {
     dataStrHex.toUpperCase();
     dataStrHex.trim();
 
-    String out = "Filetype: Bruce Encrypted File\nVersion: 1\n";
+    String out = "Filetype: HeavyButter Encrypted File\nVersion: 1\n";
     out += "Algo: XOR\n"; // TODO: add AES
     out += "KeyDerivationAlgo: MD5\n";
     out += "KeyDerivationPasses: 10\n";

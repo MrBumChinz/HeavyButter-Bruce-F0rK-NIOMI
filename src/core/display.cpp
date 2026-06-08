@@ -822,7 +822,7 @@ void drawStatusBar() {
         tft.print(timeStr);
     } else {
         setTftDisplay(12, 12, bruceConfig.priColor, 1, bruceConfig.bgColor);
-        tft.print("BRUCE " + String(BRUCE_VERSION));
+        tft.print("HEAVYBUTTER " + String(BRUCE_VERSION));
     }
 
     int iconCount = 0;
@@ -895,7 +895,7 @@ void drawMainBorder(bool clear) {
     setTftDisplay(12, 12, bruceConfig.priColor, 1, bruceConfig.bgColor);
     tft.setTextDatum(0);
 
-    // if(wifiConnected) {tft.print(timeStr);} else {tft.print("BRUCE 1.0b");}
+    // if(wifiConnected) {tft.print(timeStr);} else {tft.print("HEAVYBUTTER 1.0b");}
 
     drawStatusBar();
 

@@ -31,7 +31,7 @@ void BleMenu::optionsMenu() {
     options.push_back({"Media Cmds", [=]() { MediaCommands(hid_ble, true); }});
     options.push_back({"BLE Scan", ble_scan});
     options.push_back({"iBeacon", [=]() {
-                           ibeacon("Bruce", "e4c159a0-8c82-11e6-bdf4-0800200c9a66", 0x004C);
+                           ibeacon("HeavyButter", "e4c159a0-8c82-11e6-bdf4-0800200c9a66", 0x004C);
                        }});
     options.push_back({"Bad BLE", [=]() { ducky_setup(hid_ble, true); }});
     options.push_back({"BLE Keyboard", [=]() { ducky_keyboard(hid_ble, true); }});

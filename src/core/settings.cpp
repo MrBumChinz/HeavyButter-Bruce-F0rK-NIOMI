@@ -1297,11 +1297,11 @@ void setGpsBaudrateMenu() {
 **  Handles Menu to set the WiFi AP SSID
 **********************************************************************/
 void setWifiApSsidMenu() {
-    const bool isDefault = bruceConfig.wifiAp.ssid == "BruceNet";
+    const bool isDefault = bruceConfig.wifiAp.ssid == "HeavyButter";
 
     options = {
-        {"Default (BruceNet)",
-         [=]() { bruceConfig.setWifiApCreds("BruceNet", bruceConfig.wifiAp.pwd); },
+        {"Default (HeavyButter)",
+         [=]() { bruceConfig.setWifiApCreds("HeavyButter", bruceConfig.wifiAp.pwd); },
          isDefault                                                                            },
         {"Custom",
          [=]() {
@@ -1322,11 +1322,11 @@ void setWifiApSsidMenu() {
 **  Handles Menu to set the WiFi AP Password
 **********************************************************************/
 void setWifiApPasswordMenu() {
-    const bool isDefault = bruceConfig.wifiAp.pwd == "brucenet";
+    const bool isDefault = bruceConfig.wifiAp.pwd == "heavybutter";
 
     options = {
-        {"Default (brucenet)",
-         [=]() { bruceConfig.setWifiApCreds(bruceConfig.wifiAp.ssid, "brucenet"); },
+        {"Default (heavybutter)",
+         [=]() { bruceConfig.setWifiApCreds(bruceConfig.wifiAp.ssid, "heavybutter"); },
          isDefault                                                                             },
         {"Custom",
          [=]() {
