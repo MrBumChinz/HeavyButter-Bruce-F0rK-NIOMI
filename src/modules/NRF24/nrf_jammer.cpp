@@ -19,7 +19,8 @@
  */
 
 #include "nrf_jammer.h"
-#include "esp32-hal-semaphore.h"
+#include <freertos/FreeRTOS.h>
+#include <freertos/semphr.h>
 
 // Shared SPI bus mutex (defined in main.cpp)
 extern SemaphoreHandle_t cc_nrf_spi_mutex;
