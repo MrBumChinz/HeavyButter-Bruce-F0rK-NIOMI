@@ -1,0 +1,16 @@
+{
+  "name": "IR2Keyboard",
+  "description": "Use any IR remote to send commands to your pc requires: IR receiver + USBHID-capable device",
+  "category": "Infrared",
+  "version": "1.0.1",
+  "commit": "c9d3731b38e67598e5b66a6488d8b12aeb8bf4dd",
+  "owner": "BruceDevices",
+  "repo": "firmware",
+  "path": "/sd_files/interpreter/",
+  "files": [
+    {
+      "source": "ir2keys.js",
+      "destination": "IR2Keyboard.js"
+    }
+  ]
+}

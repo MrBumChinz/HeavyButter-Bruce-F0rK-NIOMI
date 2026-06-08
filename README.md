@@ -65,6 +65,67 @@ pio run -e <environment>
 
 Replace `<environment>` with the target board environment (e.g., `m5stack-cardputer`, `m5stack-sticks3`, `lilygo-t-deck`, `lilygo-t-embed-cc1101`, `CYD-2432S028`, `m5stack-cplus2`).
 
+
+
+## Self-Hosted App Store
+
+HeavyButter includes a self-hosted App Store in Docker so you control every module downloaded to your device. No dependency on upstream servers.
+
+### Quick Start
+
+```sh
+cd appstore
+
+# Start the server (requires Docker)
+docker compose up -d
+
+# Sync the latest App Store catalog from upstream
+bash scripts/sync.sh http://ghp.iceis.co.uk http://localhost:8080
+docker compose restart
+```
+
+### Production Deployment
+
+Set a domain with HTTPS:
+
+```sh
+DOMAIN=voltbin.xyz docker compose up -d
+bash scripts/sync.sh http://ghp.iceis.co.uk https://voltbin.xyz
+docker compose restart
+```
+
+Then update the firmware's App Store URL in `src/core/config.h`:
+
+```c
+#define APPSTORE_SERVER_URL "https://voltbin.xyz"
+```
+
+Rebuild and flash to your device:
+
+```sh
+pio run -e m5stack-cardputer -t upload
+```
+
+### Architecture
+
+| Endpoint | Purpose |
+|---|---|
+| `/service/appstore/` | Serves the App Store JavaScript (runs on-device) |
+| `/service/main/releases/categories.json` | Category listing |
+| `/service/main/releases/category-{slug}.min.json` | Apps in each category |
+| `/service/main/repositories/{owner}/{repo}/{app}/metadata.json` | App metadata with version, files, commit |
+| `/service/manual/{owner}/{repo}/{commit}/{path}` | Direct file download for install/update |
+
+All data is static — no database, no backend logic. The sync script snapshots from upstream and patches the JS to point to your server. Each download is verified by SHA-256 integrity check in the firmware.
+
+### Periodic Updates
+
+Add a cron job to keep your App Store catalog fresh:
+
+```cron
+0 */6 * * * cd /path/to/appstore && bash scripts/sync.sh http://ghp.iceis.co.uk https://voltbin.xyz && docker compose restart
+```
+
 ## Supported Boards
 
 HeavyButter is built and tested for the following 6 boards:

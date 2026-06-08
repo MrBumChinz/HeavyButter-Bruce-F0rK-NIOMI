@@ -1,0 +1,32 @@
+{
+  "name": "Watch Dogs",
+  "description": "A theme for Bruce based on the Watch Dogs video game series, featuring futuristic design elements and hacker aesthetics. By NEKKO",
+  "category": "Themes",
+  "version": "1.0.0",
+  "commit": "c3a78d4a4e431351833d8124109bc81f7c267b57",
+  "owner": "BruceDevices",
+  "repo": "App-Store-Apps",
+  "supported-screen-size": "320x170",
+  "path": "/Themes/Watch Dogs 320x170/",
+  "files": [
+    {
+      "source": "WD.json",
+      "destination": "Watch Dogs.json"
+    },
+    "BLE.png",
+    "boot.gif",
+    "CFG.png",
+    "CLOCK.png",
+    "CONNECT.png",
+    "FILES.png",
+    "FM.png",
+    "GPS.png",
+    "INT.png",
+    "IR.png",
+    "NRF.png",
+    "OTHERS.png",
+    "RF.png",
+    "RFID.png",
+    "WIFI.png"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Bruce Theme (PNG)",
+  "slug-name": "PNG-320x240px",
+  "description": "A bold, glowing upgrade for your Bruce device with neon energy and shark power.",
+  "category": "Themes",
+  "version": "1.3.0",
+  "commit": "46b8d3dd699694b1b0f44581b6743e70b20f3951",
+  "owner": "emericklaw",
+  "repo": "Bruce-Theme",
+  "supported-screen-size": "320x240",
+  "path": "/PNG-320x240px/",
+  "files": [
+    "Bruce_Theme.json",
+    "BLE.png",
+    "Clock.png",
+    "Config.png",
+    "Connect.png",
+    "Ethernet.png",
+    "FM.png",
+    "Files.png",
+    "GPS.png",
+    "IR.png",
+    "JSInterpreter.png",
+    "LoRa.png",
+    "NRF24.png",
+    "Others.png",
+    "RF.png",
+    "RFID.png",
+    "WiFi.png"
+  ]
+}

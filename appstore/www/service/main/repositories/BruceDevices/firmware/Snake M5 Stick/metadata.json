@@ -1,0 +1,17 @@
+{
+  "name": "Snake",
+  "description": "Snake game",
+  "category": "Games",
+  "version": "1.0.1",
+  "commit": "c9d3731b38e67598e5b66a6488d8b12aeb8bf4dd",
+  "owner": "BruceDevices",
+  "repo": "firmware",
+  "supported-devices": "(M5Stick.*|M5Stack Core.*)",
+  "path": "/sd_files/interpreter/",
+  "files": [
+    {
+      "source": "Snake_Stick_CoreS3.js",
+      "destination": "Snake.js"
+    }
+  ]
+}

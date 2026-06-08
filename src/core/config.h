@@ -11,6 +11,9 @@
 
 enum EvilPortalPasswordMode { FULL_PASSWORD = 0, FIRST_LAST_CHAR = 1, HIDE_PASSWORD = 2, SAVE_LENGTH = 3 };
 
+// App Store server URL - point this to your self-hosted App Store
+#define APPSTORE_SERVER_URL "https://voltbin.xyz"
+
 class BruceConfig : public BruceTheme {
 public:
     struct WiFiCredential {

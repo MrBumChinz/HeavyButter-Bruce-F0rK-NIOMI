@@ -1,0 +1,31 @@
+{
+  "name": "Bruce Theme (GIF)",
+  "slug-name": "GIF-320x170px",
+  "description": "A bold, glowing upgrade for your Bruce device with neon energy and shark power.",
+  "category": "Themes",
+  "version": "1.3.0",
+  "commit": "46b8d3dd699694b1b0f44581b6743e70b20f3951",
+  "owner": "emericklaw",
+  "repo": "Bruce-Theme",
+  "supported-screen-size": "320x170",
+  "path": "/GIF-320x170px/",
+  "files": [
+    "Bruce_Theme.json",
+    "BLE.gif",
+    "Clock.gif",
+    "Config.gif",
+    "Connect.gif",
+    "Ethernet.gif",
+    "FM.gif",
+    "Files.gif",
+    "GPS.gif",
+    "IR.gif",
+    "JSInterpreter.gif",
+    "LoRa.gif",
+    "NRF24.gif",
+    "Others.gif",
+    "RF.gif",
+    "RFID.gif",
+    "WiFi.gif"
+  ]
+}

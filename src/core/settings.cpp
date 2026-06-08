@@ -22,7 +22,7 @@
 // Set this to the expected SHA-256 hex string of the App Store script.
 // Empty string disables the check (for development, or if hash is unknown).
 // The maintainer should update this when the server content is verified.
-#define EXPECTED_APPSTORE_SHA256 ""
+#define EXPECTED_APPSTORE_SHA256 "75dcd1a65aaeff1ce0927fd47078de9ec69e7824864de59f41c4f49501ecfa55"
 
 static bool verify_sha256(const uint8_t *data, size_t len, const char *expected_hex) {
     if (expected_hex == NULL || strlen(expected_hex) == 0) {
@@ -1736,7 +1736,7 @@ void installAppStoreJS() {
     }
 
     HTTPClient http;
-    http.begin("https://ghp.iceis.co.uk/service/appstore/");
+    http.begin(APPSTORE_SERVER_URL "/service/appstore/");
     int httpCode = http.GET();
     if (httpCode != 200) {
         http.end();
