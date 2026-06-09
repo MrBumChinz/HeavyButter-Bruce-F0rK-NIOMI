@@ -30,12 +30,21 @@ This fork addresses security and stability issues found in the upstream firmware
 | Broken deep sleep | `DEEPSLEEP_WAKEUP_PIN` defaulted to -1, deep sleep non-functional | Default changed to GPIO 0 (BOOT button) |
 | NRF24 jamming with WiFi active | WiFi radio desenses NRF24 front-end on same 2.4GHz band | WiFi stopped during jammer operation for clean channel |
 
-### Integrity & OPSEC
+### Operational Security (OPSEC)
 
-- **SHA-256 verification** for all App Store downloads — firmware rejects tampered payloads
-- **AES-256-CBC encryption** for sensitive config fields stored on device
-- **Unique per-device passwords** derived from MAC address — no two devices share credentials
-- **Self-hosted App Store** at voltbin.xyz — apps are rebranded to SharkSoup HeavyButter in the catalog
+This fork was created because the upstream Bruce firmware had fundamental operational security failures that could expose red team operators. Every fix in this fork is aimed at reducing the operator's footprint and preventing data leaks.
+
+| OPSEC Concern | Upstream | SharkSoup HeavyButter |
+|---|---|---|
+| App Store traffic | Unencrypted HTTP — anyone on the network can see what you're downloading | HTTPS with certificate validation |
+| Payload integrity | No verification — compromised App Store could serve malicious payloads | SHA-256 hash check before every install |
+| Credential storage | Plaintext in flash — anyone with physical access can extract passwords | AES-256-CBC encrypted at rest, key derived from device-unique factors |
+| Default passwords | All devices ship with the same hardcoded credentials | MAC-derived unique passwords per device |
+| Reverse shell | No authentication required — anyone who connects to the port gets a shell | MAC-derived password required before shell access |
+| Device naming in BLE/WiFi | Broadcasts "Bruce" in SSID/device name — identifies operator and firmware | Broadcasts "HeavyButter" with randomized suffixes |
+| Sleep mode | Screen off but radios still active — device can be detected and triangulated | Radios fully powered down in sleep, no RF emissions |
+| Config persistence | Config files stored unencrypted on SD/LittleFS | Sensitive fields encrypted before writing to flash |
+| App Store server | Centralized upstream server outside operator control | Self-hosted at voltbin.xyz with full catalog control and rebranding |
 
 ## Releases
 
