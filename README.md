@@ -29,8 +29,6 @@ All findings from the HeavyButter audit have been fixed:
 |---|---|
 | Boot Loop | `esp_wifi_set_country()` crash on ESP32 D0WDQ6 (CYD-2432S028) - disabled premature WiFi config calls |
 | Jammer Crash | `esp_phy_disable()` crash on ESP32-S3 (T-Embed CC1101, T-Deck, Cardputer, StickS3, CPlus2) - removed unsafe PHY powerdown |
-
-
 ## Key Features
 
 - All 8 security vulnerabilities from the HeavyButter audit fixed
@@ -68,10 +66,6 @@ All binaries are merged (bootloader + partitions + app) and should be flashed at
 esptool.py --port /dev/ttyACM0 --baud 921600 write_flash 0x00000 SharkSoup-<device>.bin
 ```
 
-### Using the Official Bruce Web Flasher
-
-You can also use the official Bruce web flasher at https://bruce.computer/flasher and flash the downloaded binary manually.
-
 ## Build from Source
 
 ### Prerequisites
@@ -87,8 +81,6 @@ pio run -e <environment>
 ```
 
 Replace `<environment>` with the target board environment (e.g., `m5stack-cardputer`, `m5stack-sticks3`, `lilygo-t-deck`, `lilygo-t-embed-cc1101`, `CYD-2432S028`, `m5stack-cplus2`).
-
-
 
 ## Official App Store
 
