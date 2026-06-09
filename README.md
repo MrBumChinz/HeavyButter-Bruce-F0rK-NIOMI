@@ -39,6 +39,21 @@ All findings from the HeavyButter audit have been fixed:
 
 Download the latest `.bin` file for your device from the [Releases](https://github.com/r13xr13/HeavyButter-Bruce-F0rK/releases) page.
 
+### Available Binaries
+
+Download the correct file for your board from the release assets:
+
+| Board | Binary |
+|-------|--------|
+| M5Stack Cardputer | `SharkSoup-m5stack-cardputer.bin` |
+| M5Stack StickS3 | `SharkSoup-m5stack-sticks3.bin` |
+| Lilygo T-Deck | `SharkSoup-lilygo-t-deck.bin` |
+| Lilygo T-Embed CC1101 | `SharkSoup-lilygo-t-embed-cc1101.bin` |
+| JCZN CYD-2432S028 | `SharkSoup-CYD-2432S028.bin` |
+| M5Stack Core2 / Plus2 | `SharkSoup-m5stack-cplus2.bin` |
+
+All binaries are merged (bootloader + partitions + app) and should be flashed at offset `0x00000`.
+
 ### Using esptool.py
 
 ```sh
