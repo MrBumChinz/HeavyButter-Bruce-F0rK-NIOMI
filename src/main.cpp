@@ -468,8 +468,8 @@ void setup() {
         .policy = WIFI_COUNTRY_POLICY_MANUAL
     };
 
-    esp_wifi_set_max_tx_power(80); // 80 translates to 20dBm
-    esp_wifi_set_country(&country);
+//     esp_wifi_set_max_tx_power(80); // 80 translates to 20dBm
+//     esp_wifi_set_country(&country);
 
     // Some GPIO Settings (such as CYD's brightness control must be set after tft and sdcard)
     _post_setup_gpio();
