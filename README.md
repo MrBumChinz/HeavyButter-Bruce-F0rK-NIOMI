@@ -2,11 +2,13 @@
 
 # SharkSoup HeavyButter Edition
 
-A security-hardened fork of [Bruce firmware](https://github.com/pr3y/Bruce) with all vulnerabilities from the HeavyButter forensic audit remediated, plus additional bugfixes and improvements found during development.
+I like Bruce firmware. It's a powerful tool and the community behind it is talented. But when I actually looked at what it was doing under the hood — the plaintext credentials, the unauthenticated reverse shell, the HTTP calls, the radios that stay on during sleep — I realized this thing was a liability for anyone taking opsec seriously.
+
+So I forked it and fixed it. This isn't a rewrite. It's the same Bruce you know, except the stuff that would get you burned has been gutted and replaced. Every change is documented in the [forensic audit report](https://github.com/r13xr13/bruce-firmware-forensic-report).
+
+If you use this firmware for red team work, you should know exactly what your device is broadcasting, storing, and serving. With this fork, you do.
 
 ## What's Different
-
-This fork addresses security and stability issues found in the upstream firmware. All changes are documented in the [forensic audit report](https://github.com/r13xr13/bruce-firmware-forensic-report).
 
 ### Security Fixes
 
