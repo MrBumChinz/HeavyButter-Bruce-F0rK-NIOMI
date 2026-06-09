@@ -23,6 +23,14 @@ All findings from the HeavyButter audit have been fixed:
 | AV-007 | Server divergence from upstream | Server-side fix |
 | AV-008 | Reverse shell backdoor | Authentication enforcement with MAC-derived password |
 
+### Post-Audit Fixes
+
+| Fix | Description |
+|---|---|
+| Boot Loop | `esp_wifi_set_country()` crash on ESP32 D0WDQ6 (CYD-2432S028) - disabled premature WiFi config calls |
+| Jammer Crash | `esp_phy_disable()` crash on ESP32-S3 (T-Embed CC1101, T-Deck, Cardputer, StickS3, CPlus2) - removed unsafe PHY powerdown |
+
+
 ## Key Features
 
 - All 8 security vulnerabilities from the HeavyButter audit fixed
@@ -33,7 +41,7 @@ All findings from the HeavyButter audit have been fixed:
 - Fixed deep sleep (radios properly powered down)
 - HTTPS-only App Store communications
 - Reverse shell authentication required
-- NRF24 jammer with WiFi PHY powerdown
+- NRF24 jammer crash fixed (Butter Goes Good with Jam)
 
 ## Flashing Instructions
 
