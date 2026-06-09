@@ -44,7 +44,6 @@ This fork was created because the upstream Bruce firmware had fundamental operat
 | Device naming in BLE/WiFi | Broadcasts "Bruce" in SSID/device name — identifies operator and firmware | Broadcasts "HeavyButter" with randomized suffixes |
 | Sleep mode | Screen off but radios still active — device can be detected and triangulated | Radios fully powered down in sleep, no RF emissions |
 | Config persistence | Config files stored unencrypted on SD/LittleFS | Sensitive fields encrypted before writing to flash |
-| App Store server | Centralized upstream server outside operator control | Self-hosted at voltbin.xyz with full catalog control and rebranding |
 
 ## Releases
 
