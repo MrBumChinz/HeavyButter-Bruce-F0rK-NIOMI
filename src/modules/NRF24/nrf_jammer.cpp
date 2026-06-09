@@ -608,14 +608,14 @@ static void runJammer(NRF24_MODE nrfMode, NrfJamMode jamMode) {
     }
 
 
-    // Power down WiFi PHY during jamming to clear 2.4GHz band
+    // Safely power down WiFi radio during jamming to clear 2.4GHz band
+    // NOTE: esp_phy_disable() is NOT called here because it requires prior PHY init
+    // and can crash on ESP32-S3. esp_wifi_stop() is sufficient to stop 2.4GHz TX.
     wifi_mode_t savedWifiMode = WIFI_MODE_NULL;
-    esp_wifi_get_mode(&savedWifiMode);
-    if (savedWifiMode != WIFI_MODE_NULL) {
+    if (esp_wifi_get_mode(&savedWifiMode) == ESP_OK && savedWifiMode != WIFI_MODE_NULL) {
         esp_wifi_set_ps(WIFI_PS_MIN_MODEM);
         esp_wifi_stop();
-        esp_phy_disable(PHY_MODEM_WIFI);
-        delay(10);  // Wait for RF front-end to settle
+        delay(10);
     }
 
     bool running = true;
@@ -768,11 +768,12 @@ static void runJammer(NRF24_MODE nrfMode, NrfJamMode jamMode) {
         NRFradio.flush_tx();
         NRFradio.powerDown();
     }
-        // Restore WiFi state after jamming completes
-        if (savedWifiMode != WIFI_MODE_NULL) {
-            esp_wifi_set_mode(savedWifiMode);
+    // Restore WiFi state after jamming completes
+    if (savedWifiMode != WIFI_MODE_NULL) {
+        if (esp_wifi_set_mode(savedWifiMode) == ESP_OK) {
             esp_wifi_start();
         }
+    }
 
     if (CHECK_NRF_UART(nrfMode) || CHECK_NRF_BOTH(nrfMode)) { NRFSerial.println("OFF"); }
 }
