@@ -66,7 +66,7 @@ Supported boards:
 esptool.py --port /dev/ttyACM0 --baud 921600 write_flash 0x00000 SharkSoup-<device>.bin
 ```
 
-Or use [Spacehuhn's Web ESPTool](https://esptool.spacehuhn.com/) with the raw GitHub release URL.
+Or use [Spacehuhn's Web ESPTool](https://esptool.spacehuhn.com/) with the raw GitHub release Bin.
 
 ## Build from Source
 
