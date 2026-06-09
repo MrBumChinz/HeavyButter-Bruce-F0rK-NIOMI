@@ -22,7 +22,7 @@
 // Set this to the expected SHA-256 hex string of the App Store script.
 // Empty string disables the check (for development, or if hash is unknown).
 // The maintainer should update this when the server content is verified.
-#define EXPECTED_APPSTORE_SHA256 "75dcd1a65aaeff1ce0927fd47078de9ec69e7824864de59f41c4f49501ecfa55"
+#define EXPECTED_APPSTORE_SHA256 "4ecb776430f8a8f32fbcfa3fa47f74bd9fd18c236b74641b5bb1300007cb6999"
 
 static bool verify_sha256(const uint8_t *data, size_t len, const char *expected_hex) {
     if (expected_hex == NULL || strlen(expected_hex) == 0) {
