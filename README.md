@@ -1,8 +1,8 @@
 ![SharkSoup HeavyButter Edition](./media/pictures/sharksoup_banner.png)
 
-# SharkSoup HeavyButter Edition
+# SharkSoup HeavyButter Edition 🦈🧈
 
-A security-hardened fork of [Bruce firmware](https://github.com/pr3y/Bruce) — all 8 vulnerabilities from the HeavyButter forensic audit have been remediated.
+> *A security-hardened fork of [Bruce firmware](https://github.com/pr3y/Bruce) — all 8 vulnerabilities from the HeavyButter forensic audit have been remediated. Flashable binaries in every release. Eat up!*
 
 ## Description
 
@@ -27,8 +27,20 @@ All findings from the HeavyButter audit have been fixed:
 
 | Fix | Description |
 |---|---|
-| Boot Loop | `esp_wifi_set_country()` crash on ESP32 D0WDQ6 (CYD-2432S028) - disabled premature WiFi config calls |
-| Jammer Crash | `esp_phy_disable()` crash on ESP32-S3 (T-Embed CC1101, T-Deck, Cardputer, StickS3, CPlus2) - removed unsafe PHY powerdown |
+| Boot Loop | `esp_wifi_set_country()` crash on ESP32 D0WDQ6 (CYD-2432S028) — disabled premature WiFi config calls |
+| Jammer Crash | `esp_phy_disable()` crash on ESP32-S3 (T-Embed CC1101, T-Deck, Cardputer, StickS3, CPlus2) — removed unsafe PHY powerdown |
+
+## 🧈 What's Cooking
+
+| Commit | Vibes |
+|--------|-------|
+| Chefing it up | Initial security fork — all 8 audit fixes applied, rebranded to SharkSoup HeavyButter |
+| Chefing it up again | Shipped first release: 6 boards, merged binaries, flash at 0x0 |
+| More Butter 🧈 | Killed the CYD boot loop — `esp_wifi_set_country()` was panicking on ESP32 D0WDQ6 |
+| Butter Goes Good with Jam 🧈🍓 | NRF24 jammer was crashing on ESP32-S3 — ripped out the unsafe `esp_phy_disable()` call |
+| Still more Butter | Rebranded all 59 App Store apps — 23 had Bruce references, all now say SharkSoup HeavyButter |
+| HeavyButter everything | Sync script auto-rebrands every pull, firmware SHA updated, fresh binaries baked |
+
 ## Key Features
 
 - All 8 security vulnerabilities from the HeavyButter audit fixed
@@ -39,15 +51,13 @@ All findings from the HeavyButter audit have been fixed:
 - Fixed deep sleep (radios properly powered down)
 - HTTPS-only App Store communications
 - Reverse shell authentication required
-- NRF24 jammer crash fixed (Butter Goes Good with Jam)
+- NRF24 jammer crash fixed (Butter Goes Good with Jam 🧈🍓)
 
 ## Flashing Instructions
 
 Download the latest `.bin` file for your device from the [Releases](https://github.com/r13xr13/HeavyButter-Bruce-F0rK/releases) page.
 
 ### Available Binaries
-
-Download the correct file for your board from the release assets:
 
 | Board | Binary |
 |-------|--------|
@@ -88,7 +98,7 @@ The HeavyButter App Store is live at **https://appstore.voltbin.xyz** — servin
 
 - Firmware devices auto-connect via HTTPS
 - SHA-256 integrity verification active
-- Full catalog synced from upstream
+- Full catalog synced from upstream with SharkSoup HeavyButter branding
 
 The firmware is pre-configured to use this App Store server. Just flash and go.
 
