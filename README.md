@@ -2,7 +2,7 @@
 
 # SharkSoup HeavyButter Edition
 
-I like Bruce firmware. It's a powerful tool and the community behind it is talented. But when I actually looked at what it was doing under the hood — the plaintext credentials, the unauthenticated reverse shell, the HTTP calls, the radios that stay on during sleep — I realized this thing was a liability for anyone taking opsec seriously.
+ So why a Security Hardened F0rK ?, when I actually looked at what it was doing under the hood... the plaintext credentials, the unauthenticated reverse shell, the HTTP calls, the radios that stay on during sleep — I realized this thing was a liability for anyone taking opsec seriously.
 
 So I forked it and fixed it. This isn't a rewrite. It's the same Bruce you know, except the stuff that would get you burned has been gutted and replaced. Every change is documented in the [forensic audit report](https://github.com/r13xr13/bruce-firmware-forensic-report).
 
