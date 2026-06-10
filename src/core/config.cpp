@@ -559,7 +559,7 @@ void BruceConfig::fromFile(bool checkFS) {
             scApiKey = is_encrypted(_val) ? decrypt_field(_val) : _val;
         }
     } else {
-        scApiKey = "your 64-char hex key from soulcage.win/profile";
+        scApiKey = "your 64-char hex key from soulcage.win/territory (Captures tab > API Key)";
     }
     if (!setting["devMode"].isNull()) {
         devMode = setting["devMode"].as<int>();

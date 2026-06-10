@@ -7,8 +7,9 @@
  * Auth:     X-API-Key header (64-char hex, kind=EXTERNAL, no HMAC signing)
  * Response: 202 Accepted  {"job_id":"...","state":"queued","networks_in":N,...}
  *
- * Mint your key at soulcage.win — choose "External wardriver" in the key
- * type dropdown and paste the 64-char key into scApiKey in bruce.conf.
+ * Mint your key at soulcage.win/territory — open the Captures tab, expand
+ * the API Key section, choose "External wardriver", then paste the 64-char
+ * key into scApiKey in bruce.conf.
  */
 
 #include "soulcage.h"
