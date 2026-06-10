@@ -111,6 +111,6 @@ SharkSoup is a tool for cyber offensive and red team operations, distributed und
 
 <div align="center">
 
-**SharkSouo** by [HEAVYBUTTER](https://github.com/r13xr13)
+**SharkSoup** by [HEAVYBUTTER](https://github.com/r13xr13)
 
 </div>
