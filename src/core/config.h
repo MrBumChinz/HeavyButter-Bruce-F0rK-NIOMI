@@ -88,6 +88,7 @@ public:
     String startupAppJSInterpreterFile = "";
     String wigleBasicToken = "";
     String wdgwarsApiKey = "your 64-char hex key from wdgwars.pl/profile";
+    String scApiKey = "your 64-char hex key from soulcage.win/profile";
     int devMode = 0;
     int warningFlags = 0;  // bitmask: bit0=defaults warning
     int colorInverted = 1;
@@ -186,6 +187,7 @@ public:
     void setStartupAppJSInterpreterFile(String value);
     void setWigleBasicToken(String value);
     void setWdgwarsApiKey(String value);
+    void setScApiKey(String value);
     void setDevMode(int value);
     void validateDevModeValue();
     void setColorInverted(int value);

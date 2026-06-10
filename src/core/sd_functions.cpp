@@ -3,6 +3,7 @@
 #include "modules/badusb_ble/ducky_typer.h"
 #include "modules/bjs_interpreter/interpreter.h"
 #include "modules/gps/wdgwars.h"
+#include "modules/gps/soulcage.h"
 #include "modules/gps/wigle.h"
 #include "modules/ir/TV-B-Gone.h"
 #include "modules/ir/custom_ir.h"
@@ -801,6 +802,16 @@ String loopSD(FS &fs, bool filePicker, String allowed_ext, String rootPath) {
                                                              delay(200);
                                                              WDGoWars wdg;
                                                              wdg.upload_all(&fs, Folder);
+                                                         }});
+                        options.insert(options.begin(), {"SC Upload", [&]() {
+                                                             delay(200);
+                                                             SoulCage sc;
+                                                             sc.upload(&fs, filepath);
+                                                         }});
+                        options.insert(options.begin(), {"SC Up All", [&]() {
+                                                             delay(200);
+                                                             SoulCage sc;
+                                                             sc.upload_all(&fs, Folder);
                                                          }});
                     }
 #if !defined(LITE_VERSION) && !defined(DISABLE_INTERPRETER)

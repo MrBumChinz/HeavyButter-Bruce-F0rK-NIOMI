@@ -198,6 +198,7 @@ JsonDocument BruceConfig::toJson() const {
     setting["startupAppJSInterpreterFile"] = startupAppJSInterpreterFile;
     setting["wigleBasicToken"] = wigleBasicToken;
     setting["wdgwarsApiKey"] = wdgwarsApiKey;
+    setting["scApiKey"] = scApiKey;
     setting["devMode"] = devMode;
     setting["colorInverted"] = colorInverted;
 
@@ -235,6 +236,9 @@ JsonDocument BruceConfig::toJson() const {
     }
     if (!setting["wdgwarsApiKey"].isNull()) {
         setting["wdgwarsApiKey"] = encrypt_field(setting["wdgwarsApiKey"].as<String>());
+    }
+    if (!setting["scApiKey"].isNull()) {
+        setting["scApiKey"] = encrypt_field(setting["scApiKey"].as<String>());
     }
 
     return jsonDoc;
@@ -548,6 +552,14 @@ void BruceConfig::fromFile(bool checkFS) {
     } else {
         count++;
         log_e("Fail");
+    }
+    if (!setting["scApiKey"].isNull()) {
+        {
+            String _val = setting["scApiKey"].as<String>();
+            scApiKey = is_encrypted(_val) ? decrypt_field(_val) : _val;
+        }
+    } else {
+        scApiKey = "your 64-char hex key from soulcage.win/profile";
     }
     if (!setting["devMode"].isNull()) {
         devMode = setting["devMode"].as<int>();
@@ -938,6 +950,11 @@ void BruceConfig::setWigleBasicToken(String value) {
 
 void BruceConfig::setWdgwarsApiKey(String value) {
     wdgwarsApiKey = value;
+    saveFile();
+}
+
+void BruceConfig::setScApiKey(String value) {
+    scApiKey = value;
     saveFile();
 }
 
