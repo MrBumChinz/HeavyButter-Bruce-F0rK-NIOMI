@@ -106,3 +106,11 @@ More media [here](./media/).
 ## Disclaimer
 
 SharkSoup is a tool for cyber offensive and red team operations, distributed under the terms of the Affero General Public License (AGPL). It is intended for legal and authorized security testing purposes only. Use of this software for any malicious or unauthorized activities is strictly prohibited. By downloading, installing, or using this firmware, you agree to comply with all applicable laws and regulations. The developers assume no liability for any misuse of the software.
+
+---
+
+<div align="center">
+
+**SharkSouo** by [HEAVYBUTTER](https://github.com/r13xr13)
+
+</div>
